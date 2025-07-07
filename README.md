@@ -11,10 +11,10 @@ La idea es que el entorno virtual no se limite al entretenimiento superficial, s
 
 Mis perfiles se encuentran alojados en: 
 
-Visita mi sitio en Mastoton[https://mastodon.social/@saltom]
+[Visita mi sitio en Mastoton] (https://mastodon.social/@saltom)
 
-Mi perfil en X  [https://x.com/vinicio_salto]
+[Mi perfil en X]  (https://x.com/vinicio_salto)
 
-Flounder [https://saltom.flounder.online/]
+[Flounder] [https://saltom.flounder.online/]
 
-Mis escritos [https://write.as/marcosv/]
+[Mis Escritos] [https://write.as/marcosv/]
