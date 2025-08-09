@@ -5,55 +5,118 @@
   <title>Cuaderno Virtual</title>
   <style>
     body {
-      font-family: system-ui, sans-serif;
-      background-color: #f4f4f4;
-      color: #222;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #f8ecd4 0%, #e2c9a7 100%);
+      color: #3a2c1a;
       max-width: 800px;
       margin: auto;
       padding: 2rem;
+      box-shadow: 0 0 20px #c2b08c55;
     }
     h1, h2 {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px dashed #bfa77a;
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 1px;
     }
     .post {
-      background: #fff;
+      background: #fffbe6;
       padding: 1rem;
       margin-bottom: 1.5rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
+      border: 1px solid #d6c3a3;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #bfa77a22;
     }
     .date {
       font-size: 0.85rem;
-      color: #666;
+      color: #8c7b5a;
+      font-style: italic;
     }
     img {
       max-width: 100%;
       height: auto;
       border-radius: 5px;
+      filter: sepia(0.3);
+      box-shadow: 0 2px 8px #bfa77a33;
     }
     a {
-      color: #0077cc;
-      text-decoration: none;
+      color: #7c5e3c;
+      text-decoration: underline;
     }
     a:hover {
-      text-decoration: underline;
+      color: #bfa77a;
+      text-decoration: none;
+    }
+    .intro {
+      background: #f5e6c8;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border: 1px solid #e2c9a7;
+      font-family: 'Georgia', serif;
+    }
+    .tags {
+      font-size: 0.9rem;
+      color: #7c5e3c;
+      margin-top: 0.5rem;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .vintage-quote {
+      font-family: 'Georgia', serif;
+      font-size: 1.1rem;
+      color: #5e4a2c;
+      background: #f8ecd4;
+      border-left: 4px solid #bfa77a;
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
   <h1>Cuaderno Virtual de Marco</h1>
-  <p>Un espacio personal donde comparto pensamientos, diarios, proyectos y más.</p>
+  <div class="intro">
+    <p>Bienvenido. Este cuaderno es un espacio para registrar ideas, proyectos y aprendizajes. Aquí convergen tecnología, arte y salud, documentando experimentos y procesos creativos.</p>
+    <p>Es un diario y laboratorio: avances, recursos y conexiones entre emoción e innovación.</p>
+  </div>
+
+  <div class="vintage-quote">
+    “El pasado inspira el presente. Cada página es un puente entre épocas y sueños.”
+  </div>
 
   <div class="post">
-    <h2>Día 1 – Anatomía y Realidad Aumentada</h2>
+    <h2>Día 1 – Anatomía con Realidad Aumentada</h2>
     <p class="date">07 julio 2025</p>
-    <p>Hoy visité la escuela de medicina y conversé sobre cómo enseñar anatomía con realidad aumentada. No logré realiarlo pero es una propuesta. <a href="diario-dia1.html">leer más</a></p>
+    <p>Visité la escuela de medicina y conversé sobre enseñar anatomía con realidad aumentada. Es una propuesta que podría transformar la forma en que los estudiantes visualizan el cuerpo humano. Imagino modelos interactivos flotando en el aula, donde cada órgano puede explorarse en detalle y en tiempo real. <a href="diario-dia1.html">leer más</a></p>
+    <div class="tags">#anatomía #realidadaumentada #educación</div>
   </div>
 
   <div class="post">
     <h2>Proyecto: Conexión entre tecnología y emoción</h2>
     <p class="date">06 julio 2025</p>
-    <p>Estoy diseñando un entorno digital que conecte salud, arte y psicología con la tecnología. Más detalles pronto. Dispongo de algunos proyectos o ideas para un proyecto futuro</p>
+    <p>Diseño un entorno digital que conecta salud, arte y psicología con tecnología. El objetivo es crear espacios virtuales para expresar emociones mediante experiencias interactivas, fusionando creatividad y bienestar. Una idea futura: una app que detecte el estado de ánimo y sugiera actividades artísticas personalizadas.</p>
+    <div class="tags">#tecnología #emoción #arte #psicología</div>
+  </div>
+
+  <div class="post">
+    <h2>Inspiración: Aprendizaje continuo</h2>
+    <p class="date">05 julio 2025</p>
+    <p>Aprender cada día es esencial, tanto en lo académico como en lo personal. El mundo digital ofrece posibilidades para crecer y conectar. El objetivo es mantener la curiosidad y documentar cada paso.</p>
+    <div class="tags">#aprendizaje #creatividad #motivación</div>
+  </div>
+
+  <div class="post">
+    <h2>Recuerdos: Tecnología retro</h2>
+    <p class="date">04 julio 2025</p>
+    <p>Exploré dispositivos antiguos: radios, cámaras y computadoras de los años 80. La estética vintage inspira soluciones simples y funcionales. El diseño clásico tiene valor en la era digital.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Vintage_radio.jpg" alt="Radio vintage">
+    <div class="tags">#vintage #retro #tecnología</div>
+  </div>
+
+  <div class="post">
+    <h2>Arte y memoria</h2>
+    <p class="date">03 julio 2025</p>
+    <p>El arte conecta recuerdos y emociones. Experimenté con técnicas tradicionales y digitales para crear ilustraciones que evocan nostalgia. La mezcla de estilos antiguos y modernos enriquece la expresión visual.</p>
+    <div class="tags">#arte #memoria #nostalgia</div>
   </div>
 
 </body>
