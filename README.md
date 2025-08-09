@@ -10,6 +10,8 @@ Crear experiencias digitales que fomenten la conexión emocional, el aprendizaje
 ## 📚 Proyectos Actuales
 
 ### 1. Cuentos Emocionales 📖
+📁 **Ubicación:** [`/cuentos-emocionales`](./cuentos-emocionales/)
+
 Un espacio dedicado a explorar narrativas que conectan emociones y experiencias personales. Este proyecto fomenta la empatía y la reflexión a través de historias cuidadosamente elaboradas.
 
 **Características:**
@@ -21,6 +23,8 @@ Un espacio dedicado a explorar narrativas que conectan emociones y experiencias 
 **Estado:** En desarrollo activo
 
 ### 2. Psicodrama Virtual 🎭
+📁 **Ubicación:** [`/psicodrama-virtual`](./psicodrama-virtual/)
+
 Un experimento conceptual que explora la intersección entre teatro, emociones, psicología y las técnicas de psicodrama desarrolladas por Jacob Levy Moreno.
 
 **Objetivos:**
