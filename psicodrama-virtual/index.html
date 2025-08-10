@@ -2,36 +2,445 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Psicodrama Virtual</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psicodrama Virtual - Teatro Digital Inmersivo</title>
+  <meta name="description" content="Experimenta el psicodrama en entornos digitales con técnicas innovadoras que combinan teatro clásico y tecnología moderna.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --color-primary: #2C1810;
+      --color-secondary: #8B4513;
+      --color-accent: #FFD700;
+      --color-neutral: #F5F5DC;
+      --color-highlight: #8A2BE2;
+      --color-curtain: #800020;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Source Sans Pro', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: auto;
+      font-family: var(--font-body);
+      background: linear-gradient(135deg, var(--color-primary) 0%, #1a0e08 100%);
+      color: var(--color-neutral);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Teatro Grid Layout */
+    .stage-container {
+      display: grid;
+      grid-template-areas: 
+        "curtain-left main-stage curtain-right"
+        "orchestra orchestra orchestra"
+        "timeline timeline timeline";
+      grid-template-columns: 80px 1fr 80px;
+      grid-template-rows: auto auto auto;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Cortinas Animadas */
+    .curtain {
+      background: linear-gradient(90deg, var(--color-curtain) 0%, #600018 50%, var(--color-curtain) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .curtain-left {
+      grid-area: curtain-left;
+      border-radius: 0 0 20px 0;
+      animation: curtainOpen 2s ease-in-out;
+    }
+
+    .curtain-right {
+      grid-area: curtain-right;
+      border-radius: 0 0 0 20px;
+      animation: curtainOpen 2s ease-in-out;
+    }
+
+    .curtain::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: var(--color-accent);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    @keyframes curtainOpen {
+      0% { width: 50vw; }
+      100% { width: 80px; }
+    }
+
+    /* Escenario Principal */
+    .main-stage {
+      grid-area: main-stage;
       padding: 2rem;
-      background-color: #f4f4f4;
+      background: radial-gradient(ellipse at center, rgba(255,215,0,0.1) 0%, transparent 70%);
+      position: relative;
     }
-    h1 {
-      color: #333;
+
+    /* Header Hero */
+    .hero-section {
+      text-align: center;
+      padding: 4rem 0;
+      position: relative;
+      z-index: 2;
     }
-    p {
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--color-accent);
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+      margin-bottom: 1rem;
+      animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% { text-shadow: 3px 3px 6px rgba(0,0,0,0.7); }
+      100% { text-shadow: 3px 3px 15px rgba(255,215,0,0.5); }
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--color-highlight);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    /* Cards Grid Brutalista */
+    .techniques-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .technique-card {
+      background: var(--color-secondary);
+      border: 4px solid var(--color-accent);
+      border-radius: 0;
+      padding: 2rem;
+      box-shadow: 8px 8px 0 rgba(255,215,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .technique-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0 rgba(255,215,0,0.5);
+    }
+
+    .technique-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--color-highlight);
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+
+    .card-content {
       line-height: 1.6;
+      color: var(--color-neutral);
     }
-    a {
-      color: #0066cc;
+
+    /* Timeline Gráfico Lineal */
+    .timeline-section {
+      grid-area: timeline;
+      padding: 4rem 2rem;
+      background: rgba(139,69,19,0.1);
+      border-top: 3px solid var(--color-accent);
+    }
+
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      text-align: center;
+      color: var(--color-accent);
+      margin-bottom: 3rem;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: var(--color-accent);
+      box-shadow: 0 0 10px rgba(255,215,0,0.5);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      padding-right: 4rem;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+      padding-left: 4rem;
+    }
+
+    .timeline-content {
+      background: var(--color-secondary);
+      padding: 2rem;
+      border: 3px solid var(--color-accent);
+      position: relative;
+      box-shadow: 4px 4px 0 rgba(255,215,0,0.3);
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--color-highlight);
+      border: 4px solid var(--color-accent);
+      top: 2.5rem;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(138,43,226,0.5);
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+
+    .phase-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+
+    /* Enlaces Mejorados */
+    .links-section {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .link-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--color-highlight);
+      color: var(--color-neutral);
+      text-decoration: none;
+      border: 3px solid var(--color-accent);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-button:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255,215,0,0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stage-container {
+        grid-template-areas: 
+          "main-stage"
+          "timeline";
+        grid-template-columns: 1fr;
+      }
+      
+      .curtain-left, .curtain-right {
+        display: none;
+      }
+      
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 80px !important;
+        padding-right: 2rem !important;
+      }
+      
+      .timeline-item::after {
+        left: 20px !important;
+      }
+    }
+
+    /* Accesibilidad */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Focus states para accesibilidad */
+    .link-button:focus,
+    .technique-card:focus {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 2px;
     }
   </style>
 </head>
 <body>
-  <h1>Psicodrama Virtual</h1>
-  <p><strong>Una propuesta pedagógica e innovadora</strong></p>
-  <p>Este sitio acompaña al repositorio "Psicodrama Virtual" y resume los
-     objetivos y recursos principales para implementar psicodrama en plataformas digitales.</p>
-  <h2>Enlaces de Interés</h2>
-  <ul>
-    <li><a href="https://es.wikipedia.org/wiki/Psicodrama" target="_blank">¿Qué es el psicodrama?</a></li>
-    <li><a href="https://tecnologiaeducativa.org" target="_blank">Tecnología educativa</a></li>
-  </ul>
-  <p>Explora el código y adapta las ideas para tus propias experiencias formativas.</p>
+  <main class="stage-container" role="main">
+    <!-- Cortinas -->
+    <aside class="curtain curtain-left" aria-hidden="true"></aside>
+    <aside class="curtain curtain-right" aria-hidden="true"></aside>
+
+    <!-- Escenario Principal -->
+    <section class="main-stage">
+      <!-- Hero Section -->
+      <header class="hero-section">
+        <h1 class="hero-title">Psicodrama Virtual</h1>
+        <p class="hero-subtitle">Teatro Digital Inmersivo para la Transformación Personal</p>
+      </header>
+
+      <!-- Técnicas Cards -->
+      <section class="techniques-section" aria-labelledby="techniques-title">
+        <h2 id="techniques-title" class="sr-only">Técnicas de Psicodrama</h2>
+        <div class="techniques-grid">
+          <article class="technique-card" tabindex="0">
+            <h3 class="card-title">🎭 Role Playing</h3>
+            <p class="card-content">Exploración de roles y perspectivas a través de representaciones digitales interactivas que fomentan la empatía y comprensión.</p>
+          </article>
+          
+          <article class="technique-card" tabindex="0">
+            <h3 class="card-title">🪞 Espejo Digital</h3>
+            <p class="card-content">Técnicas de autorrefleción utilizando tecnología para el autoconocimiento y la expansión de la conciencia emocional.</p>
+          </article>
+          
+          <article class="technique-card" tabindex="0">
+            <h3 class="card-title">🔄 Inversión de Roles</h3>
+            <p class="card-content">Metodología para ver situaciones desde múltiples perspectivas, facilitando la resolución de conflictos y el crecimiento personal.</p>
+          </article>
+          
+          <article class="technique-card" tabindex="0">
+            <h3 class="card-title">🎪 Escenario Virtual</h3>
+            <p class="card-content">Creación de espacios digitales seguros para la expresión auténtica y la exploración de emociones complejas.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Enlaces -->
+      <section class="links-section" aria-labelledby="links-title">
+        <h2 id="links-title" class="phase-title">Recursos y Referencias</h2>
+        <nav class="links-grid" role="navigation" aria-label="Enlaces externos de interés">
+          <a href="https://es.wikipedia.org/wiki/Psicodrama" target="_blank" rel="noopener noreferrer" class="link-button">
+            ¿Qué es el Psicodrama?
+          </a>
+          <a href="https://tecnologiaeducativa.org" target="_blank" rel="noopener noreferrer" class="link-button">
+            Tecnología Educativa
+          </a>
+        </nav>
+      </section>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section" aria-labelledby="timeline-title">
+      <h2 id="timeline-title" class="timeline-title">Proceso Psicodramático</h2>
+      <div class="timeline" role="list" aria-label="Fases del proceso psicodramático">
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-content">
+            <h3 class="phase-title">1. Calentamiento</h3>
+            <p>Preparación del espacio digital y conexión emocional con el grupo virtual. Establecimiento de confianza y seguridad.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-content">
+            <h3 class="phase-title">2. Desarrollo</h3>
+            <p>Exploración activa a través de técnicas digitales. Role-playing, inversión de roles y trabajo con escenarios virtuales.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-content">
+            <h3 class="phase-title">3. Comentarios</h3>
+            <p>Reflexión grupal y procesamiento de la experiencia. Integración de aprendizajes y cierre emocional del proceso.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-content">
+            <h3 class="phase-title">4. Integración</h3>
+            <p>Aplicación de insights en la vida cotidiana. Seguimiento y apoyo continuo a través de plataformas digitales.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Screen reader text -->
+  <span class="sr-only">Página de Psicodrama Virtual - Experimenta técnicas teatrales digitales para el crecimiento personal</span>
+  
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </body>
 </html>
