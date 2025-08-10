@@ -78,6 +78,9 @@ Todo el contenido expuesto es **experimental** y con fines de **educación** tan
 ## 📞 Contacto y Colaboración
 Este es un proyecto en constante evolución. Si te interesa colaborar o tienes ideas para enriquecer estos experimentos creativos, ¡tu participación es bienvenida!
 
+## 📋 Documentación Completa
+Para instrucciones detalladas de uso, deployment y contribución, consulta nuestro **[Informe de Uso completo](./INFORME_DE_USO.md)**.
+
 ---
 
 *"Documentando el viaje entre la creatividad y la tecnología, una página a la vez."*
